@@ -6,17 +6,17 @@ This project focuses on semantic image segmentation using the U-Net architecture
 
 The goal of this project is to build a deep learning model capable of accurately identifying flood regions, which could assist emergency response teams and disaster management agencies.
 
-Dataset
+**Dataset**  
 
-Dataset used in this project:
+**Dataset used in this project:**  
 
 Flood Area Segmentation Dataset
 Source: Kaggle
 
-Dataset Link:
+**Dataset Link:**  
 https://www.kaggle.com/datasets/faizalkarim/flood-area-segmentation
 
-Dataset Characteristics
+**Dataset Characteristics**  
 
 Property | Description
 Images | ~290 aerial images
@@ -24,14 +24,14 @@ Resolution | ≥ 640×640
 Classes | 2 (Flood, Background)
 Task | Binary Image Segmentation
 
-Challenges in the dataset include:
+**Challenges in the dataset include:**  
 
 • Small dataset size
 • Water reflections
 • Muddy terrain that visually resembles flood water
 • Class imbalance between flood and background regions
 
-Repository Structure
+**Repository Structure**  
 
 learning-hub-flood-segmentation/
 
@@ -77,15 +77,15 @@ learning-hub-flood-segmentation/
 └── report/
 └── Learning_Hub_Report.pdf
 
-Installation
+**Installation**  
 
 Clone the repository
 
-git clone https://github.com/your-repo/flood-segmentation.git
+git clone https://github.com/aristidekanamugire/Mini-Project-8
 
 cd flood-segmentation
 
-Install dependencies
+**Install dependencies** 
 
 pip install -r requirements.txt
 
@@ -99,13 +99,13 @@ Place the dataset inside the following directory:
 
 data/flood_dataset/
 
-Expected folder structure
+**Expected folder structure** 
 
 data/
 images/
 masks/
 
-Model Architecture
+**Model Architecture** 
 
 This project uses the U-Net architecture, a convolutional neural network designed specifically for image segmentation tasks.
 
@@ -131,20 +131,20 @@ Optimizer | Adam
 Learning Rate | 0.001
 Loss Function | Dice Loss + Binary Cross Entropy
 
-Callbacks used during training:
+**Callbacks used during training:** 
 
 • EarlyStopping
 • ReduceLROnPlateau
 
-Evaluation Metrics
+**Evaluation Metrics** 
 
-The model performance was evaluated using the following metrics:
+**The model performance was evaluated using the following metrics:** 
 
 • Intersection over Union (IoU)
 • Mean IoU (mIoU)
 • Dice Coefficient
 
-Example results
+**Example results** 
 
 Class | IoU
 Flood | 0.81
@@ -153,9 +153,9 @@ Background | 0.94
 Mean IoU: 0.875
 Dice Score: 0.89
 
-Sample Predictions
+**Sample Predictions** 
 
-The model generates the following outputs:
+**The model generates the following outputs:** 
 
 • Input aerial image
 • Ground truth flood mask
@@ -166,23 +166,23 @@ Example outputs can be found in:
 
 outputs/figures/
 
-Team Contributions
+**Team Contributions** 
 
-Tanishq Rawat
+**Tanishq Rawat** 
 
 • Model implementation
 • Data preprocessing
 • Training pipeline
 • Model evaluation
 
-Aristide Kanamugire
+**Aristide Kanamugire** 
 
 • Data augmentation
 • Visualization
 • Error analysis
 • Report preparation
 
-References
+**References** 
 
 Flood Area Segmentation Dataset
 https://www.kaggle.com/datasets/faizalkarim/flood-area-segmentation
