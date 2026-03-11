@@ -1,0 +1,9 @@
+data/
+models/
+*.h5
+*.ckpt
+*.log
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.env
