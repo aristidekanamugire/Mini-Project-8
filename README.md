@@ -1,4 +1,4 @@
-**  Project Overview **  
+**Project Overview**  
 
 Natural disasters such as floods cause significant damage to infrastructure, agriculture, and communities. Rapid identification of flooded areas is critical for disaster response teams to allocate resources efficiently and plan rescue operations.
 
