@@ -1,159 +1,191 @@
-Flood Area Segmentation Using U-Net
+**  Project Overview **  
 
-COMP 9130 – Mini Project 8
+Natural disasters such as floods cause significant damage to infrastructure, agriculture, and communities. Rapid identification of flooded areas is critical for disaster response teams to allocate resources efficiently and plan rescue operations.
 
-Names:
-Tanishq Rawat
-Aristide Kanamugire
+This project focuses on semantic image segmentation using the U-Net architecture to automatically detect flooded regions in aerial imagery. The model performs pixel-level classification, distinguishing flooded areas from non-flooded terrain.
 
-GitHub Repository:
-(Insert repository link here)
+The goal of this project is to build a deep learning model capable of accurately identifying flood regions, which could assist emergency response teams and disaster management agencies.
 
-1. Project Overview
+Dataset
 
-Natural disasters such as floods cause severe damage to infrastructure and communities. Rapid identification of flooded regions is critical for emergency response teams to allocate resources, plan evacuation routes, and prioritize rescue operations.
+Dataset used in this project:
 
-This project applies semantic image segmentation using the U-Net architecture to automatically detect flooded areas in aerial imagery.
-
-The model predicts pixel-level flood masks, enabling accurate mapping of flooded regions.
-
-2. Dataset
-
-Dataset: Flood Area Segmentation
+Flood Area Segmentation Dataset
 Source: Kaggle
 
-Dataset link:
+Dataset Link:
 https://www.kaggle.com/datasets/faizalkarim/flood-area-segmentation
 
 Dataset Characteristics
-Property	Value
-Images	~290
-Resolution	≥ 640x640
-Classes	2 (Flood / Background)
-Type	Binary segmentation
 
-Challenges include:
+Property | Description
+Images | ~290 aerial images
+Resolution | ≥ 640×640
+Classes | 2 (Flood, Background)
+Task | Binary Image Segmentation
 
-Small dataset size
+Challenges in the dataset include:
 
-Water reflections
+• Small dataset size
+• Water reflections
+• Muddy terrain that visually resembles flood water
+• Class imbalance between flood and background regions
 
-Muddy terrain similar to flood water
+Repository Structure
 
-Class imbalance
+learning-hub-flood-segmentation/
 
-3. Repository Structure
-learning-hub-flood-segmentation
 │
-├── notebooks
-├── src
-├── outputs
-├── models
-├── data
-└── report
-4. Installation
+├── data/
+│ └── dataset stored locally (not pushed to GitHub)
+│
 
-Clone repository:
+├── notebooks/
+│ └── flood_area_segmentation.ipynb
+│
+
+├── src/
+│ ├── data_loader.py
+│ ├── augmentations.py
+│ ├── model_unet.py
+│ ├── losses.py
+│ ├── train.py
+│ ├── evaluate.py
+│ └── visualization.py
+│
+
+├── outputs/
+│ ├── figures/
+│ │ ├── dataset_samples.png
+│ │ ├── augmentation_examples.png
+│ │ ├── unet_architecture.png
+│ │ ├── training_curves.png
+│ │ ├── prediction_examples.png
+│ │ └── error_maps.png
+│ │
+│ └── metrics/
+│ └── results_table.csv
+│
+
+├── models/
+│ └── best_unet_model.h5
+│
+
+├── requirements.txt
+├── .gitignore
+├── README.md
+└── report/
+└── Learning_Hub_Report.pdf
+
+Installation
+
+Clone the repository
 
 git clone https://github.com/your-repo/flood-segmentation.git
+
 cd flood-segmentation
 
-Install dependencies:
+Install dependencies
 
 pip install -r requirements.txt
-5. Dataset Setup
 
-Download dataset from Kaggle:
+Dataset Setup
+
+Download the dataset from Kaggle:
 
 https://www.kaggle.com/datasets/faizalkarim/flood-area-segmentation
 
-Place dataset in:
+Place the dataset inside the following directory:
 
 data/flood_dataset/
 
-Expected structure:
+Expected folder structure
 
 data/
-   images/
-   masks/
-6. Training the Model
+images/
+masks/
 
-Run the notebook:
+Model Architecture
 
-notebooks/flood_area_segmentation.ipynb
+This project uses the U-Net architecture, a convolutional neural network designed specifically for image segmentation tasks.
 
-Or run training script:
+The architecture consists of three main components:
 
-python src/train.py
+Encoder (Contracting Path)
+Extracts high-level image features through convolution and pooling layers.
 
-Training configuration:
+Decoder (Expanding Path)
+Upsamples feature maps to reconstruct spatial resolution.
 
-Parameter	Value
-Architecture	U-Net
-Image Resolution	640×640
-Epochs	20
-Batch Size	8
-Optimizer	Adam
-Loss Function	Dice Loss + Binary Cross Entropy
-7. Evaluation Metrics
+Skip Connections
+These connect encoder and decoder layers to preserve spatial information and improve segmentation accuracy.
 
-Model performance is evaluated using:
+Training Configuration
 
-Intersection over Union (IoU)
+Parameter | Value
+Model | U-Net
+Image Resolution | 640×640
+Epochs | 20
+Batch Size | 8
+Optimizer | Adam
+Learning Rate | 0.001
+Loss Function | Dice Loss + Binary Cross Entropy
 
-Mean IoU (mIoU)
+Callbacks used during training:
 
-Dice Coefficient
+• EarlyStopping
+• ReduceLROnPlateau
 
-Example results:
+Evaluation Metrics
 
-Class	IoU
-Flood	0.81
-Background	0.94
+The model performance was evaluated using the following metrics:
+
+• Intersection over Union (IoU)
+• Mean IoU (mIoU)
+• Dice Coefficient
+
+Example results
+
+Class | IoU
+Flood | 0.81
+Background | 0.94
 
 Mean IoU: 0.875
-
 Dice Score: 0.89
 
-8. Sample Predictions
+Sample Predictions
 
-Example predictions from the model:
+The model generates the following outputs:
 
-Input aerial image
+• Input aerial image
+• Ground truth flood mask
+• Predicted segmentation mask
+• Error map highlighting incorrect predictions
 
-Ground truth mask
+Example outputs can be found in:
 
-Predicted flood mask
+outputs/figures/
 
-Error map
-
-(See outputs/figures/)
-
-9. Team Contributions
+Team Contributions
 
 Tanishq Rawat
 
-Model implementation
-
-Data preprocessing
-
-Training pipeline
-
-Evaluation metrics
+• Model implementation
+• Data preprocessing
+• Training pipeline
+• Model evaluation
 
 Aristide Kanamugire
 
-Data augmentation
+• Data augmentation
+• Visualization
+• Error analysis
+• Report preparation
 
-Visualization
-
-Error analysis
-
-Report writing
-
-10. References
+References
 
 Flood Area Segmentation Dataset
 https://www.kaggle.com/datasets/faizalkarim/flood-area-segmentation
 
-Ronneberger et al., 2015 – U-Net: Convolutional Networks for Biomedical Image Segmentation.
+Ronneberger, O., Fischer, P., Brox, T. (2015).
+U-Net: Convolutional Networks for Biomedical Image Segmentation.
