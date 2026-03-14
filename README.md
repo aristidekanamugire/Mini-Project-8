@@ -31,53 +31,8 @@ This project applies **semantic segmentation** using the **U-Net architecture** 
 
 **Business Context**: Emergency response teams need rapid flood mapping to prioritize rescue operations and allocate resources.
 
-**Repository Structure** 
-earning-hub-flood-segmentation/
-├── data/                  # (not pushed – .gitignore)
-│   └── flood_dataset/
-│       ├── Image/
-│       └── Mask/
-├── notebooks/
-│   └── flood_area_segmentation.ipynb
-├── src/
-│   ├── data_loader.py
-│   ├── augmentations.py
-│   ├── model_unet.py
-│   ├── losses.py
-│   ├── train.py
-│   ├── evaluate.py
-│   └── visualization.py
-├── outputs/
-│   ├── figures/
-│   │   ├── dataset_samples.png
-│   │   ├── augmentation_examples.png
-│   │   ├── training_curves.png
-│   │   ├── prediction_examples.png
-│   │   └── error_maps.png
-│   └── metrics/
-│       └── results_table.csv
-├── models/
-│   └── best_unet_model.h5
-├── requirements.txt
-├── .gitignore
-├── README.md
-└── report/
-└── Learning_Hub_Report.pdf
-text**Installation & Setup**  
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/aristidekanamugire/Mini-Project-8.git
-cd Mini-Project-8
-2. Install dependencies
-Bashpip install -r requirements.txt
-3. Download the dataset
-
-Go to: Kaggle Flood Area Segmentation
-Download and extract into:textdata/flood_dataset/
-    ├── Image/
-    └── Mask/
-
+Install dependencies
+pip install -r requirements.txt
 How to Run the Code
 Recommended: Google Colab (T4 GPU) or VS Code + Colab extension
 Option A – Colab (easiest)
