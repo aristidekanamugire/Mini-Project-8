@@ -31,4 +31,127 @@ This project applies **semantic segmentation** using the **U-Net architecture** 
 
 **Business Context**: Emergency response teams need rapid flood mapping to prioritize rescue operations and allocate resources.
 
-**Repository Structure**  
+**Repository Structure** 
+earning-hub-flood-segmentation/
+├── data/                  # (not pushed – .gitignore)
+│   └── flood_dataset/
+│       ├── Image/
+│       └── Mask/
+├── notebooks/
+│   └── flood_area_segmentation.ipynb
+├── src/
+│   ├── data_loader.py
+│   ├── augmentations.py
+│   ├── model_unet.py
+│   ├── losses.py
+│   ├── train.py
+│   ├── evaluate.py
+│   └── visualization.py
+├── outputs/
+│   ├── figures/
+│   │   ├── dataset_samples.png
+│   │   ├── augmentation_examples.png
+│   │   ├── training_curves.png
+│   │   ├── prediction_examples.png
+│   │   └── error_maps.png
+│   └── metrics/
+│       └── results_table.csv
+├── models/
+│   └── best_unet_model.h5
+├── requirements.txt
+├── .gitignore
+├── README.md
+└── report/
+└── Learning_Hub_Report.pdf
+text**Installation & Setup**  
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/aristidekanamugire/Mini-Project-8.git
+cd Mini-Project-8
+2. Install dependencies
+Bashpip install -r requirements.txt
+3. Download the dataset
+
+Go to: Kaggle Flood Area Segmentation
+Download and extract into:textdata/flood_dataset/
+    ├── Image/
+    └── Mask/
+
+How to Run the Code
+Recommended: Google Colab (T4 GPU) or VS Code + Colab extension
+Option A – Colab (easiest)
+
+Open notebooks/flood_area_segmentation.ipynb in Google Colab
+Select Runtime → Change runtime type → T4 GPU
+Run all cells in order
+
+Option B – Local / VS Code
+Bash# Run training
+python src/train.py
+
+# Run evaluation & generate visualizations
+python src/evaluate.py
+python src/visualization.py
+Expected runtime: ~20 epochs on T4 GPU (≈15–25 minutes)
+Results Summary
+Key Metrics (after 20 epochs):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ClassIoUDiceFlood0.810.89Background0.940.97mIoU0.875-Mean Dice-0.93
+Loss Function: Binary Cross-Entropy + Dice Loss
+Optimizer: Adam (lr = 0.001)
+Callbacks: EarlyStopping + ReduceLROnPlateau
+Training Curves and Prediction Examples are shown below.
+Sample Predictions
+(The model generates input image, ground truth mask, predicted mask, and error map. 6 examples included – good and poor cases)
+<img src="outputs/figures/prediction_examples.png" alt="Sample Predictions">
+<img src="outputs/figures/training_curves.png" alt="Training Curves">
+Team Member Contributions
+Tanishq Rawat
+
+Model implementation (U-Net with ResNet34 backbone)
+Data preprocessing & pipeline
+Training script & callbacks
+Metrics calculation
+
+Aristide Kanamugire
+
+Data augmentation strategy
+Visualization & error analysis
+Report & README preparation
+GitHub repository structure
+
+References
+
+Flood Area Segmentation Dataset: Kaggle
+Ronneberger et al. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation. MICCAI.
+Segmentation Models library (used for pre-trained ResNet34 encoder)
