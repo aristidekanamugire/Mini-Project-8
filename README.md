@@ -122,7 +122,11 @@ data/
 
 ## Team Member Contributions
 
-**Group 10**
+**Aristide Kanamugire**
+- Data augmentation
+- Visualization and error analysis
+- Report and README preparation
+
 
 **Tanishq Rawat**
 - Model implementation
@@ -130,10 +134,6 @@ data/
 - Training pipeline development
 - Metrics calculation
 
-**Aristide Kanamugire**
-- Data augmentation
-- Visualization and error analysis
-- Report and README preparation
 
 **Both Members**
 - Learning Hub report preparation
