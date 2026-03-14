@@ -125,7 +125,7 @@ data/
 **Aristide Kanamugire**
 - Data augmentation
 - Visualization and error analysis
-- Report and README preparation
+- README preparation
 
 
 **Tanishq Rawat**
